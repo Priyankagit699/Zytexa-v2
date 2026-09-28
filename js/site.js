@@ -121,9 +121,12 @@ if(f){
     var r=tl.getBoundingClientRect(), p=(innerHeight*.6-r.top)/r.height;
     p=p<0?0:p>1?1:p;
     fill.style.height=(p*100)+"%";
+    // whole timeline below the screen (e.g. jumped back to top): reset every row
+    if(r.top>innerHeight) rows.forEach(function(row){ row.classList.remove("in"); });
   }
   function sched(){ if(near && !ticking){ ticking=true; requestAnimationFrame(update); } }
-  new IntersectionObserver(function(es){ near=es[0].isIntersecting; if(near) sched(); },{rootMargin:"300px 0px"}).observe(tl);
+  // one last update when it leaves the range, so a jump far away still resets it
+  new IntersectionObserver(function(es){ near=es[0].isIntersecting; if(near) sched(); else update(); },{rootMargin:"300px 0px"}).observe(tl);
   window.addEventListener("scroll",sched,{passive:true});
   window.addEventListener("resize",sched);
   update();
