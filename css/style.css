@@ -117,6 +117,8 @@ button,input,select,textarea{font:inherit;color:inherit}
 .chip{font-size:.8rem;padding:5px 11px;border-radius:999px;border:1px solid var(--line-strong);color:var(--ice);background:rgba(4,10,28,.4)}
 .more{margin-top:auto;align-self:flex-start;background:none;border:0;padding:6px 0;color:var(--ice);font-weight:600;font-size:.95rem;cursor:pointer;display:inline-flex;align-items:center;gap:8px;border-bottom:1.5px solid var(--cyan)}
 .more:hover{color:var(--cyan)}
+/* touch screens: 48px tap area without changing how the link-style button looks */
+@media (pointer:coarse){.more{position:relative}.more::after{content:"";position:absolute;left:0;right:0;top:50%;height:48px;transform:translateY(-50%)}}
 
 /* ---------- dialog ---------- */
 dialog{border:1px solid var(--line-strong);border-radius:26px;padding:0;background:#081330;color:var(--ice);width:min(720px,calc(100vw - 24px));max-height:min(86vh,860px);overscroll-behavior:contain}
@@ -151,7 +153,7 @@ dialog h4{font-size:1rem;margin:28px 0 12px;font-weight:600}
 .tech-rows:hover .tech-track{animation-play-state:paused}
 
 /* ---------- how we work: vertical growth-process timeline ---------- */
-#process.hww{background:var(--night);overflow-x:hidden;overflow-x:clip}
+section.hww{background:var(--night);overflow-x:hidden;overflow-x:clip}
 .hww-head{text-align:center;margin-bottom:clamp(48px,7vw,80px)}
 .hww-badge{display:inline-block;padding:8px 20px;border:1px solid rgba(255,255,255,.2);border-radius:999px;font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:20px}
 .hww-title{font-family:var(--display);font-weight:700;font-size:clamp(2.4rem,6vw,4.5rem);line-height:1.05;letter-spacing:-.03em;color:#fff;margin:0}

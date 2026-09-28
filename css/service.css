@@ -48,14 +48,10 @@
 .svc-page .chip{background:#fff;border-color:var(--light-border);color:var(--light-text);font-size:.9rem;padding:8px 14px}
 .svc-chips{margin:0;gap:10px}
 
-.svc-steps{list-style:none;margin:36px 0 0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:20px;counter-reset:st}
-.svc-steps li{counter-increment:st;padding-top:20px;border-top:2px solid var(--light-border)}
-.svc-steps li::before{content:counter(st,decimal-leading-zero);display:block;margin-bottom:14px;font-family:var(--display);font-weight:600;font-size:1.5rem;color:var(--royal)}
-.svc-steps h3{margin:0 0 8px;font-family:var(--display);font-weight:600;font-size:1.05rem;color:var(--light-text)}
-.svc-steps p{margin:0;font-size:.95rem;color:var(--light-muted);line-height:1.55}
 
 /* enquiry band (dark, reuses the site's form field styles) */
 .svc-enquire{background:var(--night);color:var(--ice);padding-block:clamp(56px,7vw,96px);position:relative;isolation:isolate;overflow:hidden}
+.svc-enquire{border-top:1px solid var(--line)}
 .svc-enquire::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(50% 70% at 0% 0%,rgba(20,70,160,.35),transparent 70%)}
 .enq-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr);gap:clamp(32px,6vw,88px);align-items:start}
 .svc-enquire .svc-h2{color:var(--ice)}
@@ -84,12 +80,10 @@
   .svc-index{display:none}
   .svc-two,.enq-grid{grid-template-columns:1fr}
   .svc-side{position:static}
-  .svc-steps{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:32px}
-}
+  }
 @media (max-width:600px){
   .svc-list{grid-template-columns:1fr}
-  .svc-steps{grid-template-columns:1fr}
-  .svc-fit li{padding:18px}
+    .svc-fit li{padding:18px}
   .rel-more .rel-all{margin-left:0}
   .svc-enquire{padding-bottom:88px}
 }

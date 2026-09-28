@@ -347,36 +347,6 @@ if(!reduce){
   uSched();
 }
 
-/* ================= HOW WE WORK: timeline reveal + scroll-linked line ================= */
-(function(){
-  var tl=document.getElementById("hww"), fill=document.getElementById("hww-fill");
-  if(!tl||!fill) return;
-  var rows=tl.querySelectorAll(".hww-row");
-  if(reduce || !("IntersectionObserver" in window)){
-    rows.forEach(function(r){ r.classList.add("in"); });
-    fill.style.height="100%";
-    return;
-  }
-  // reveal on the way down; hide again only when a row leaves through the bottom (scrolling up)
-  var rio=new IntersectionObserver(function(es){es.forEach(function(en){
-    if(en.isIntersecting) en.target.classList.add("in");
-    else if(en.boundingClientRect.top>0) en.target.classList.remove("in");
-  })},{threshold:.3,rootMargin:"-80px 0px"});
-  rows.forEach(function(r){ rio.observe(r); });
-  var near=false, ticking=false;
-  function update(){
-    ticking=false;
-    var r=tl.getBoundingClientRect(), p=(innerHeight*.6-r.top)/r.height;
-    p=p<0?0:p>1?1:p;
-    fill.style.height=(p*100)+"%";
-  }
-  function sched(){ if(near && !ticking){ ticking=true; requestAnimationFrame(update); } }
-  new IntersectionObserver(function(es){ near=es[0].isIntersecting; if(near) sched(); },{rootMargin:"300px 0px"}).observe(tl);
-  window.addEventListener("scroll",sched,{passive:true});
-  window.addEventListener("resize",sched);
-  update();
-})();
-
 /* ================= USP CARDS: cursor glow + tilt ================= */
 if(window.matchMedia("(hover: hover) and (pointer: fine)").matches && !reduce){
   var uspGrid=document.querySelector(".usp-grid");
