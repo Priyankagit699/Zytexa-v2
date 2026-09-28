@@ -69,6 +69,8 @@ button,input,select,textarea{font:inherit;color:inherit}
 .nav.open .menu-btn span:nth-child(2){opacity:0}
 .nav.open .menu-btn span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
 
+.nav-links .nav-trigger{display:inline-flex;align-items:center;gap:6px}.nav-trigger .chev{width:14px;height:14px}.mega{display:none}
+
 /* ---------- hero ---------- */
 .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;overflow:hidden;isolation:isolate}
 .hero::before{content:"";position:absolute;inset:0;z-index:-2;background:
@@ -136,7 +138,18 @@ button,input,select,textarea{font:inherit;color:inherit}
       <span><span class="brand-name">ZYTEXA</span><span class="brand-sub">Technology LLP</span></span>
     </a>
     <ul class="nav-links" id="nav-links">
-      <li><a href="#services">Services</a></li>
+      <li class="has-mega" id="has-mega">
+        <a class="nav-trigger" id="mega-btn" href="#services" aria-expanded="false" aria-controls="mega">Services<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></a>
+        <div class="mega" id="mega">
+          <div class="wrap mega-in">
+            <div class="mega-side">
+              <div class="mega-tabs"><button type="button" class="mega-tab is-on" data-p="build" aria-pressed="true" aria-controls="mp-build"><span class="mt-name">Build</span><span class="mt-count">4 services</span><svg class="mt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><button type="button" class="mega-tab" data-p="grow" aria-pressed="false" aria-controls="mp-grow"><span class="mt-name">Grow</span><span class="mt-count">5 services</span><svg class="mt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><button type="button" class="mega-tab" data-p="automate" aria-pressed="false" aria-controls="mp-automate"><span class="mt-name">Automate</span><span class="mt-count">3 services</span><svg class="mt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><button type="button" class="mega-tab" data-p="advise" aria-pressed="false" aria-controls="mp-advise"><span class="mt-name">Advise</span><span class="mt-count">2 services</span><svg class="mt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+              <a class="mega-all" href="#services">View all 14 services</a>
+            </div>
+            <div class="mega-panels"><div class="mega-panel is-on" id="mp-build" data-p="build"><div class="mega-col"><p class="mega-h">Build</p><ul class="mega-list"><li><a href="services/website-development.html"><span class="ml-t">Website Development</span><span class="ml-d">Fast, functional and future-ready websites.</span></a></li><li><a href="services/mobile-app-development.html"><span class="ml-t">Mobile App Development</span><span class="ml-d">From concept to code. Mobile apps that scale.</span></a></li><li><a href="services/ui-ux-web-design.html"><span class="ml-t">UI/UX &amp; Web Design</span><span class="ml-d">Design that delivers. Experiences that matter.</span></a></li><li><a href="services/cybersecurity-maintenance.html"><span class="ml-t">Cybersecurity &amp; Maintenance</span><span class="ml-d">Protect, maintain and perform without worry.</span></a></li></ul></div><div class="mega-note"><p class="mega-h">About Build</p><p>Websites, apps and interfaces that are fast, secure and ready to grow.</p><p class="mega-h">Tools we use</p><p class="mega-tools">React.js, Next.js, HTML5, CSS3, Bootstrap, JavaScript, Node.js, Java Spring Boot</p><a class="mega-wa" href="https://wa.me/919166720321?text=Hi%20Zytexa%2C%20I%27d%20like%20to%20know%20more%20about%20your%20Build%20services." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>Ask about Build on WhatsApp</a></div></div><div class="mega-panel" id="mp-grow" data-p="grow"><div class="mega-col"><p class="mega-h">Grow</p><ul class="mega-list"><li><a href="services/digital-marketing.html"><span class="ml-t">Digital Marketing</span><span class="ml-d">Reach more. Engage better. Convert faster.</span></a></li><li><a href="services/ecommerce-solutions.html"><span class="ml-t">E-Commerce Solutions</span><span class="ml-d">Sell smart. Grow big. Rule online.</span></a></li><li><a href="services/google-my-business.html"><span class="ml-t">Google My Business Optimization</span><span class="ml-d">Be found. Be trusted. Be chosen locally.</span></a></li><li><a href="services/branding-creative.html"><span class="ml-t">Branding &amp; Creative Production</span><span class="ml-d">Designs that speak. Brands that stick.</span></a></li><li><a href="services/photography-videography.html"><span class="ml-t">Photography &amp; Videography</span><span class="ml-d">Visual stories that connect and convert.</span></a></li></ul></div><div class="mega-note"><p class="mega-h">About Grow</p><p>Marketing, marketplaces and content that bring customers to you.</p><p class="mega-h">Tools we use</p><p class="mega-tools">Meta Ads, Google Ads, YouTube, WhatsApp, Hotstar, MX Player, Amazon, Flipkart</p><a class="mega-wa" href="https://wa.me/919166720321?text=Hi%20Zytexa%2C%20I%27d%20like%20to%20know%20more%20about%20your%20Grow%20services." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>Ask about Grow on WhatsApp</a></div></div><div class="mega-panel" id="mp-automate" data-p="automate"><div class="mega-col"><p class="mega-h">Automate</p><ul class="mega-list"><li><a href="services/crm-erp-solutions.html"><span class="ml-t">CRM &amp; ERP Solutions</span><span class="ml-d">Automate your sales. Streamline your business.</span></a></li><li><a href="services/business-automation.html"><span class="ml-t">Business Automation</span><span class="ml-d">Automate repetitive tasks and scale with ease.</span></a></li><li><a href="services/data-analytics-ai.html"><span class="ml-t">Data Analytics &amp; AI</span><span class="ml-d">Turn data into decisions with smart insights.</span></a></li></ul></div><div class="mega-note"><p class="mega-h">About Automate</p><p>Systems that handle the repetitive work so your team can focus on selling.</p><p class="mega-h">Tools we use</p><p class="mega-tools">Salesforce, Zoho CRM, HubSpot, Odoo, Microsoft Dynamics, Freshsales, SAP Business One, Tally Prime</p><a class="mega-wa" href="https://wa.me/919166720321?text=Hi%20Zytexa%2C%20I%27d%20like%20to%20know%20more%20about%20your%20Automate%20services." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>Ask about Automate on WhatsApp</a></div></div><div class="mega-panel" id="mp-advise" data-p="advise"><div class="mega-col"><p class="mega-h">Advise</p><ul class="mega-list"><li><a href="services/business-growth-strategy.html"><span class="ml-t">Business Growth Strategy</span><span class="ml-d">From startup to scale-up. We&#x27;ve been there.</span></a></li><li><a href="services/it-consultancy.html"><span class="ml-t">IT Consultancy &amp; Support</span><span class="ml-d">Expert tech advice, always by your side.</span></a></li></ul></div><div class="mega-note"><p class="mega-h">About Advise</p><p>Honest guidance on what to build, when to build it and what it should cost.</p><a class="mega-wa" href="https://wa.me/919166720321?text=Hi%20Zytexa%2C%20I%27d%20like%20to%20know%20more%20about%20your%20Advise%20services." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg>Ask about Advise on WhatsApp</a></div></div></div>
+          </div>
+        </div>
+      </li>
       <li><a href="#why">Why Zytexa</a></li>
       <li><a href="#process">How we work</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -269,18 +282,36 @@ button,input,select,textarea{font:inherit;color:inherit}
 </main>
 
 <footer class="footer">
-  <div class="wrap footer-in">
-    <div>
-      <a class="brand" href="#top"><img src="assets/zytexa-logo.webp" alt="" width="38" height="39"><span><span class="brand-name">ZYTEXA</span><span class="brand-sub">Technology LLP</span></span></a>
-      <p>IT services and consultancy from Jaipur, Rajasthan. Websites, apps, marketing, automation and everything in between.</p>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a class="brand" href="#top"><img src="assets/zytexa-logo.webp" alt="" width="38" height="39" loading="lazy"><span><span class="brand-name">ZYTEXA</span><span class="brand-sub">Technology LLP</span></span></a>
+        <p class="footer-desc">IT services and consultancy from Jaipur, Rajasthan. Websites, apps, marketing, automation and growth strategy under one roof.</p>
+        <ul class="footer-contact">
+          <li><a href="tel:+919166720321"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>+91 91667 20321</a></li>
+          <li><a href="mailto:contact@zytexa.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>contact@zytexa.com</a></li>
+          <li><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>Vaishali Nagar, Jaipur 302021</span></li>
+        </ul>
+      </div>
+      <nav class="footer-col" aria-label="Build services"><p class="footer-ct">Build</p><ul class="footer-links"><li><a href="services/website-development.html">Website Development</a></li><li><a href="services/mobile-app-development.html">Mobile Apps</a></li><li><a href="services/ui-ux-web-design.html">UI/UX Design</a></li><li><a href="services/cybersecurity-maintenance.html">Cybersecurity</a></li></ul></nav>
+      <nav class="footer-col" aria-label="Grow services"><p class="footer-ct">Grow</p><ul class="footer-links"><li><a href="services/digital-marketing.html">Digital Marketing</a></li><li><a href="services/ecommerce-solutions.html">E-Commerce</a></li><li><a href="services/google-my-business.html">Google My Business</a></li><li><a href="services/branding-creative.html">Branding &amp; Creative</a></li><li><a href="services/photography-videography.html">Photography &amp; Video</a></li></ul></nav>
+      <nav class="footer-col" aria-label="Automate and Advise services"><p class="footer-ct">Automate</p><ul class="footer-links"><li><a href="services/crm-erp-solutions.html">CRM &amp; ERP</a></li><li><a href="services/business-automation.html">Business Automation</a></li><li><a href="services/data-analytics-ai.html">Data Analytics &amp; AI</a></li></ul><p class="footer-ct">Advise</p><ul class="footer-links"><li><a href="services/business-growth-strategy.html">Growth Strategy</a></li><li><a href="services/it-consultancy.html">IT Consultancy</a></li></ul></nav>
+      <nav class="footer-col" aria-label="Company">
+        <p class="footer-ct">Company</p>
+        <ul class="footer-links">
+          <li><a href="#why">Why Zytexa</a></li>
+          <li><a href="#process">How we work</a></li>
+          <li><a href="#stack">Technologies</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="https://wa.me/919166720321?text=Hi%20Zytexa%2C%20I%27d%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener">Chat on WhatsApp</a></li>
+        </ul>
+      </nav>
     </div>
-    <ul class="footer-links">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#why">Why Zytexa</a></li>
-      <li><a href="#process">How we work</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <div class="copy">© <span id="year">2026</span> Zytexa Technology LLP. All rights reserved.</div>
+    <div class="footer-bot">
+      <span class="copy">&copy; <span id="year">2026</span> Zytexa Technology LLP. All rights reserved.</span>
+      <!-- Social links: replace href="#" with your real profile URLs -->
+      <div class="footer-soc"><a class="f-soc" href="#" aria-label="Zytexa on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg></a><a class="f-soc" href="#" aria-label="Zytexa on LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg></a><a class="f-soc" href="#" aria-label="Zytexa on Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h-2.5A3.5 3.5 0 0 0 9 6.5V9H7v3.5h2V21h3.5v-8.5H15l.5-3.5h-3V7a1 1 0 0 1 1-1H15z"/></svg></a><a class="f-soc" href="#" aria-label="Zytexa on YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="4"/><path d="m10 9 5 3-5 3z"/></svg></a></div>
+    </div>
   </div>
 </footer>
 
@@ -319,6 +350,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 
 
 <script src="assets/logo-points.js" defer></script>
+<script src="js/site.js" defer></script>
 <script src="js/main.js" defer></script>
 </body>
 </html>

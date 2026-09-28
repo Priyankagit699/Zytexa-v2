@@ -51,6 +51,9 @@ var SERVICES = [
    items:["Project-based technical consultancy","Launch planning for startups","Tech stack suggestions","Security, performance and scalability audits"], tech:[]}
 ];
 
+/* one page per service, same order as SERVICES */
+var SLUGS=["website-development","mobile-app-development","ui-ux-web-design","cybersecurity-maintenance","digital-marketing","ecommerce-solutions","google-my-business","branding-creative","photography-videography","crm-erp-solutions","business-automation","data-analytics-ai","business-growth-strategy","it-consultancy"];
+
 function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
 
 /* ================= RENDER ================= */
@@ -144,7 +147,7 @@ pillarsEl.addEventListener("click",function(e){
   dlgBody.innerHTML='<p class="dlg-pillar">'+pl.name+'</p><h3 id="dlg-title">'+esc(s.t)+'</h3><p class="tag">'+esc(s.tag)+(s.note?' '+esc(s.note):'')+'</p>'+
     '<h4>What\'s included</h4><ul class="dlg-list">'+s.items.map(function(x){return "<li>"+esc(x)+"</li>"}).join("")+'</ul>'+
     (s.tech.length?'<h4>Tools and technologies</h4><div class="chips">'+s.tech.map(function(x){return '<span class="chip">'+esc(x)+'</span>'}).join("")+'</div>':'')+
-    '<div class="dlg-cta"><a class="btn btn-main" href="https://wa.me/'+WA+'?text='+msg+'" target="_blank" rel="noopener">Ask about '+esc(s.t)+'</a><a class="btn btn-ghost" href="#contact" data-close data-svc="'+esc(s.t)+'">Fill the form</a></div>';
+    '<div class="dlg-cta"><a class="btn btn-main" href="https://wa.me/'+WA+'?text='+msg+'" target="_blank" rel="noopener">Ask about '+esc(s.t)+'</a><a class="btn btn-ghost" href="services/'+SLUGS[+b.dataset.i]+'.html">Full service page</a><a class="btn btn-ghost" href="#contact" data-close data-svc="'+esc(s.t)+'">Fill the form</a></div>';
   if(dlg.showModal) dlg.showModal(); else dlg.setAttribute("open","");
 });
 function closeDlg(){ if(dlg.close) dlg.close(); else dlg.removeAttribute("open"); }
@@ -154,17 +157,7 @@ dlg.addEventListener("click",function(e){
   var a=e.target.closest("[data-close]"); if(a){ sel.value=a.dataset.svc; closeDlg(); }
 });
 
-/* ================= NAV ================= */
-var nav=document.getElementById("nav"), menuBtn=document.getElementById("menu-btn");
-function onScrollNav(){ nav.classList.toggle("scrolled", window.scrollY>30) }
-onScrollNav();
-window.addEventListener("scroll",onScrollNav,{passive:true});
-menuBtn.addEventListener("click",function(){
-  var o=nav.classList.toggle("open"); menuBtn.setAttribute("aria-expanded",o); menuBtn.setAttribute("aria-label",o?"Close menu":"Open menu");
-});
-document.getElementById("nav-links").addEventListener("click",function(e){
-  if(e.target.tagName==="A"){nav.classList.remove("open");menuBtn.setAttribute("aria-expanded","false")}
-});
+/* NAV + services mega menu live in js/site.js (shared with the service pages) */
 
 /* ================= REVEAL ================= */
 if("IntersectionObserver" in window){
