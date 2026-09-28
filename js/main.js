@@ -147,7 +147,7 @@ pillarsEl.addEventListener("click",function(e){
   dlgBody.innerHTML='<p class="dlg-pillar">'+pl.name+'</p><h3 id="dlg-title">'+esc(s.t)+'</h3><p class="tag">'+esc(s.tag)+(s.note?' '+esc(s.note):'')+'</p>'+
     '<h4>What\'s included</h4><ul class="dlg-list">'+s.items.map(function(x){return "<li>"+esc(x)+"</li>"}).join("")+'</ul>'+
     (s.tech.length?'<h4>Tools and technologies</h4><div class="chips">'+s.tech.map(function(x){return '<span class="chip">'+esc(x)+'</span>'}).join("")+'</div>':'')+
-    '<div class="dlg-cta"><a class="btn btn-main" href="https://wa.me/'+WA+'?text='+msg+'" target="_blank" rel="noopener">Ask about '+esc(s.t)+'</a><a class="btn btn-ghost" href="services/'+SLUGS[+b.dataset.i]+'.html">Full service page</a><a class="btn btn-ghost" href="#contact" data-close data-svc="'+esc(s.t)+'">Fill the form</a></div>';
+    '<div class="dlg-cta"><a class="btn btn-main" href="https://wa.me/'+WA+'?text='+msg+'" target="_blank" rel="noopener">Ask about '+esc(s.t)+'</a><a class="btn btn-ghost" href="services/'+SLUGS[+b.dataset.i]+'.html">More details</a><a class="btn btn-ghost" href="#contact" data-close data-svc="'+esc(s.t)+'">Fill the form</a></div>';
   if(dlg.showModal) dlg.showModal(); else dlg.setAttribute("open","");
 });
 function closeDlg(){ if(dlg.close) dlg.close(); else dlg.removeAttribute("open"); }
@@ -162,8 +162,8 @@ dlg.addEventListener("click",function(e){
 /* ================= REVEAL ================= */
 if("IntersectionObserver" in window){
   var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add("in");io.unobserve(en.target)}})},{rootMargin:"0px 0px -12% 0px"});
-  document.querySelectorAll("[data-reveal], #steps").forEach(function(el){io.observe(el)});
-}else{document.querySelectorAll("[data-reveal], #steps").forEach(function(el){el.classList.add("in")})}
+  document.querySelectorAll("[data-reveal]").forEach(function(el){io.observe(el)});
+}else{document.querySelectorAll("[data-reveal]").forEach(function(el){el.classList.add("in")})}
 
 /* ================= CARD TILT ================= */
 if(window.matchMedia("(hover: hover) and (pointer: fine)").matches && !reduce){
@@ -347,19 +347,35 @@ if(!reduce){
   uSched();
 }
 
-/* ================= PROCESS CARDS: cursor glow + tilt ================= */
-if(window.matchMedia("(hover: hover) and (pointer: fine)").matches && !reduce){
-  var stepsEl=document.getElementById("steps");
-  stepsEl.addEventListener("pointermove",function(e){
-    var li=e.target.closest(".step"); if(!li) return;
-    var r=li.getBoundingClientRect(), x=(e.clientX-r.left)/r.width, y=(e.clientY-r.top)/r.height;
-    li.style.setProperty("--mx",(x*100)+"%"); li.style.setProperty("--my",(y*100)+"%");
-    li.style.setProperty("--ry",((x-.5)*9)+"deg"); li.style.setProperty("--rx",((.5-y)*7)+"deg");
-  });
-  stepsEl.addEventListener("pointerout",function(e){
-    var li=e.target.closest(".step"); if(li && !li.contains(e.relatedTarget)){ li.style.setProperty("--rx","0deg"); li.style.setProperty("--ry","0deg"); }
-  });
-}
+/* ================= HOW WE WORK: timeline reveal + scroll-linked line ================= */
+(function(){
+  var tl=document.getElementById("hww"), fill=document.getElementById("hww-fill");
+  if(!tl||!fill) return;
+  var rows=tl.querySelectorAll(".hww-row");
+  if(reduce || !("IntersectionObserver" in window)){
+    rows.forEach(function(r){ r.classList.add("in"); });
+    fill.style.height="100%";
+    return;
+  }
+  // reveal on the way down; hide again only when a row leaves through the bottom (scrolling up)
+  var rio=new IntersectionObserver(function(es){es.forEach(function(en){
+    if(en.isIntersecting) en.target.classList.add("in");
+    else if(en.boundingClientRect.top>0) en.target.classList.remove("in");
+  })},{threshold:.3,rootMargin:"-80px 0px"});
+  rows.forEach(function(r){ rio.observe(r); });
+  var near=false, ticking=false;
+  function update(){
+    ticking=false;
+    var r=tl.getBoundingClientRect(), p=(innerHeight*.6-r.top)/r.height;
+    p=p<0?0:p>1?1:p;
+    fill.style.height=(p*100)+"%";
+  }
+  function sched(){ if(near && !ticking){ ticking=true; requestAnimationFrame(update); } }
+  new IntersectionObserver(function(es){ near=es[0].isIntersecting; if(near) sched(); },{rootMargin:"300px 0px"}).observe(tl);
+  window.addEventListener("scroll",sched,{passive:true});
+  window.addEventListener("resize",sched);
+  update();
+})();
 
 /* ================= USP CARDS: cursor glow + tilt ================= */
 if(window.matchMedia("(hover: hover) and (pointer: fine)").matches && !reduce){
